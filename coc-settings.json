@@ -1,0 +1,22 @@
+{
+ "Languageserver": {
+    "rust": {
+	"command": "rust-analyzer", 
+	"filetypes": ["rust"],
+	"rootPatterns": ["Cargo.toml"]
+  }
+    "clangd": {
+	"command": "clangd",
+	"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+	"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+  }
+    "lua": {
+	"command": "lua-lsp",
+	"filetypes": ["lua"]
+  }
+    "golang": {
+	"command": "gopls",
+	"rootPatterns": ["go.mod"],
+	"filetypes": ["go"]
+  }
+ }
