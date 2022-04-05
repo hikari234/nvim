@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 
     " === Vim application
     Plug 'itchyny/calendar.vim'
+    Plug 'ap/vim-css-color'
 
     " === Status Bar
     Plug 'itchyny/lightline.vim'
@@ -150,8 +151,10 @@ let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
 map <leader>n :NERDTreeToggle<CR>
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" Auto Start NERDTree and put the cursor back in the other window.
+"
+" autocmd VimEnter * NERDTree | wincmd p
+"
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
