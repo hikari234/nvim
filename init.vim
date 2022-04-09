@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 	" === Language support protocal
 	Plug 'fatih/vim-go'	
 	Plug 'rust-lang/rust.vim'
+    Plug 'kylelaker/riscv.vim'
 	
 	" === Tools for coding
 	Plug 'scrooloose/nerdtree'
