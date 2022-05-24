@@ -26,7 +26,7 @@ set mouse=ar
 " set hlsearch        incsearch
 
 " cancel swapfile
-set noswapfile
+" set noswapfile
 
 " brakets
 set showmatch
@@ -79,51 +79,24 @@ inoremap jk <Esc>
 "=== coc.nvim
 "===
 " No backup setting
-set nobackup        nowritebackup   
+" set nobackup        nowritebackup   
 " Show less in Pmenu
-set updatetime=100
-set shortmess+=
+" set updatetime=100
+" set shortmess+=
 
-let g:coc_global_extensions = [
-    \ 'coc-css',
-    \ 'coc-ccls',
-    \ 'coc-json',
-    \ 'coc-vimlsp',
-    \ 'coc-html',
-    \ ]
+" let g:coc_global_extensions = [
+"    \ 'coc-css',
+"    \ 'coc-ccls',
+"    \ 'coc-json',
+"    \ 'coc-vimlsp',
+"    \ 'coc-html',
+"    \ ]
 
-inoremap <silent><expr> <c-W>o coc#refresh()
+" inoremap <silent><expr> <c-W>o coc#refresh()
 
-"===
-"=== NERDTree
-"===
-" let g:NERDTreeWinPos = "right"
-" let NERDTreeShowHidden=1
-" let NERDTreeShowLineNumbers=1
-" map <leader>n :NERDTreeToggle<CR>
-" Auto Start NERDTree and put the cursor back in the other window.
-"
-" autocmd VimEnter * NERDTree | wincmd p
-"
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-"===
-"=== lightline
-"===
-let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'active': {
-  \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype', 'charvaluehex']]
-  \ },
-  \ 'component_function': {'percent': 'ScrollStatus'},
-  \ }
 
 " ===
-" === Goyo
-" ===
-nnoremap <LEADER>g :Goyo<CR>
-
+" === hikari status Line
 " ===
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -143,7 +116,10 @@ set statusline+=%m\
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
+set statusline+=\ 
+set statusline+=\ 
 set statusline+=\ %l:%c
+set statusline+=\ 
 set statusline+=\ %p%%
 set statusline+=\ 
 
