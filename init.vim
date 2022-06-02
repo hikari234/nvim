@@ -95,6 +95,10 @@ inoremap jk <Esc>
 
 " inoremap <silent><expr> <c-W>o coc#refresh()
 
+hi hi_git 		ctermfg=121 gui=bold guifg=SeaGreen
+hi hi_path 		ctermfg=225 gui=bold guifg=Magenta
+hi hi_filename 		ctermfg=11 guifg=Yellow
+hi hi_cursor_position 	ctermfg=159 guifg=Cyan
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                      hikari status Line
@@ -105,16 +109,21 @@ endfunction
 
 function! StatuslineGit()
   let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?''.l:branchname.'':''
+  return strlen(l:branchname) > 0 ? '['.l:branchname.'] ' : ''
 endfunction
 
+
+" color seen in :highlight
 set statusline=
-set statusline+=%#CursorColumn#
-set statusline+=[%{StatuslineGit()}]
-set statusline+=\ %f
+set statusline+=%#hi_git#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#hi_path#
+set statusline+=\%f
 set statusline+=%m
 set statusline+=%=
+set statusline+=%#hi_filename#
 set statusline+=\ %y
+set statusline+=%#hi_cursor_position#
 set statusline+=\ [r:%-3l
 set statusline+=\ c:%-2c]
 set statusline+=\ %3p%%
