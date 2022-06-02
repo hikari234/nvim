@@ -65,6 +65,7 @@ noremap ;; $a;<ESC>
 noremap <leader>h :noh<CR>
 noremap <leader>s :vsplit<CR>
 noremap <leader>t :tabe<CR>
+noremap <leader>r :source $MYVIMRC<CR>
 
 " 
 " Insert Model
@@ -111,17 +112,14 @@ set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
 set statusline+=%#CursorColumn#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
 set statusline+=\ %y
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=\ %l:%c
-set statusline+=\ 
-set statusline+=\ %p%%
-set statusline+=\ 
+set statusline+=\ [r:%-3l
+set statusline+=\ c:%-2c]
+set statusline+=\ %3p%%
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                            End
