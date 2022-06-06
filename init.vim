@@ -8,48 +8,11 @@ call plug#end()
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                        BASIC CONFIGURATION ::
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
-" numbers
-" set number  		relativenumber
-
-"
-" set path+=**
 set encoding=UTF-8
 set mouse=ar
 
-" case
-" set smartcase 		ignorecase
-
-" folder
-" set foldenable  	foldmethod=marker 	foldmarker={{{,}}}
-
-" Search
-" set hlsearch        incsearch
-
-" cancel swapfile
-" set noswapfile
-
 " brakets
 set showmatch
-
-" cursor setting
-" set cursorline
-
-" set so=7
-
-" set ruler
-
-" a more powerful backspace?
-" set backspace=indent,eol,start
-
-"" Tab and indentation
-" Tab space 1 tab == 4 spaces
-" use softtabstop=4 if you want to replace tab with space
-" set expandtab       smarttab
-" set shiftwidth=4    tabstop=4
-
-" set autoindent      smartindent
-" set cindent         cinoptions=g-1
-
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                             Key Binding
@@ -76,25 +39,6 @@ inoremap jk <Esc>
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                     Plugin setting details
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
-"===
-"=== coc.nvim
-"===
-" No backup setting
-" set nobackup        nowritebackup   
-" Show less in Pmenu
-" set updatetime=100
-" set shortmess+=
-
-" let g:coc_global_extensions = [
-"    \ 'coc-css',
-"    \ 'coc-ccls',
-"    \ 'coc-json',
-"    \ 'coc-vimlsp',
-"    \ 'coc-html',
-"    \ ]
-
-" inoremap <silent><expr> <c-W>o coc#refresh()
-
 hi hi_git 		ctermfg=121 gui=bold guifg=SeaGreen
 hi hi_path 		ctermfg=225 gui=bold guifg=Magenta
 hi hi_filename 		ctermfg=11 guifg=Yellow
