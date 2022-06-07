@@ -10,6 +10,7 @@ call plug#end()
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 set encoding=UTF-8
 set mouse=ar
+syntax on
 
 " brakets
 set showmatch
@@ -39,10 +40,16 @@ inoremap jk <Esc>
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                     Plugin setting details
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
-hi hi_git 		ctermfg=121 gui=bold guifg=SeaGreen
-hi hi_path 		ctermfg=225 gui=bold guifg=Magenta
-hi hi_filename 		ctermfg=11 guifg=Yellow
-hi hi_cursor_position 	ctermfg=159 guifg=Cyan
+hi link git		Question
+hi link path	 	Title
+hi link filename	LineNr
+hi link cursor_pos	Directory
+
+" Pmenu
+hi! link Comment	Directory
+hi! link Identifier	Type
+hi! link Pmenu		Visual
+hi! link PmenuSel	Search
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                      hikari status Line
@@ -59,25 +66,19 @@ endfunction
 
 " color seen in :highlight
 set statusline=
-set statusline+=%#hi_git#
+set statusline+=%#git#
 set statusline+=%{StatuslineGit()}
-set statusline+=%#hi_path#
-set statusline+=\%f
+set statusline+=%#path#
+set statusline+=\[%f]
 set statusline+=%m
 set statusline+=%=
-set statusline+=%#hi_filename#
+set statusline+=%#filename#
 set statusline+=\ %y
-set statusline+=%#hi_cursor_position#
+set statusline+=%#cursor_pos#
 set statusline+=\ [r:%-3l
-set statusline+=\ c:%-2c]
-set statusline+=\ %3p%%
-
-"===
-"=== Some vim color config
-"===
-" Pmenu should be implemented here.
+set statusline+=\ c:%-2c
+set statusline+=\ %3p%%]
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                            End
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
-
