@@ -31,16 +31,18 @@ noremap <leader>c :call Compile()<CR>
 func! Compile()
 	exec "w"
 	if &filetype == 'c'
-		set splitbelow
-		:sp
-		:res -5
+		set splitright
+		:vsp
 		term gcc % -o %< && time ./%<
 	elseif &filetype == 'cpp'
-		set splitbelow
+		set splitright
 		exec "!g++ -std=c++11 % -Wall -o %<"
-		:sp
-		:res -15
+		:vsp
 		:term ./%<
+	elseif &filetype == 'rust'
+		set splitright
+		:vsp
+		term rustc % && ./%<
 	endif
 endfunc
 
@@ -48,6 +50,7 @@ endfunc
 inoremap jk <Esc>
 
 " Visual Model
+" System clipboard
 vnoremap Y "+y
 
 " Terminal Model
@@ -77,15 +80,15 @@ set statusline=
 set statusline+=%#git#
 set statusline+=%{StatuslineGit()}
 set statusline+=%#path#
-set statusline+=\[%f]
+set statusline+=\"%f\"
 set statusline+=%m
 set statusline+=%=
 set statusline+=%#filename#
 set statusline+=\ %y
 set statusline+=%#cursor_pos#
-set statusline+=\ [r:%-3l
-set statusline+=\ c:%-2c
-set statusline+=\ %3p%%]
+set statusline+=\ [Row:%3l/%L
+set statusline+=\ Col:%-2c]
+" set statusline+=\ %3p%%]
 
 " transparency
 hi Normal		ctermfg=252	ctermbg=NONE
