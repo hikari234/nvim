@@ -12,7 +12,7 @@
 """                            Vim-Plug
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 call plug#begin('~/.vim/plugged')
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
@@ -24,7 +24,6 @@ syntax on
 
 " brakets
 set showmatch
-
 
 let mapleader = ","
 
@@ -38,6 +37,17 @@ noremap <leader>s :vsplit<CR>
 noremap <leader>r :source $MYVIMRC<CR>
 noremap <leader>c :call Compile()<CR>
 
+" System clipboard
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
+
+" Insert Model
+inoremap jk <Esc>
+
+" Visual Model
+
+" Terminal Model
 func! Compile()
 	exec "w"
 	if &filetype == 'c'
@@ -55,15 +65,6 @@ func! Compile()
 		term rustc % && ./%<
 	endif
 endfunc
-
-" Insert Model
-inoremap jk <Esc>
-
-" Visual Model
-" System clipboard
-vnoremap Y "+y
-
-" Terminal Model
 
 
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
