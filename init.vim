@@ -11,7 +11,7 @@
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
 """                            Vim-Plug
 """ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 	" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
@@ -31,11 +31,11 @@ let mapleader = ","
 " map - recursive
 " noremap - non-recursive
 noremap ; :
+noremap C :call Compile()<CR>
 noremap <leader>h :noh<CR>
 noremap <leader>s :vsplit<CR>
-" noremap <leader>t :term<CR>
+noremap <leader>t :term<CR>
 noremap <leader>r :source $MYVIMRC<CR>
-noremap <leader>c :call Compile()<CR>
 
 " System clipboard
 noremap <leader>y "+y
@@ -48,21 +48,25 @@ inoremap jk <Esc>
 " Visual Model
 
 " Terminal Model
+"
+" % is file name
+" < to cut extension name
 func! Compile()
+
+	" wirte, then split space
+	" on the right side
 	exec "w"
+	set splitright
+	:vsp
+
 	if &filetype == 'c'
-		set splitright
-		:vsp
-		term gcc % -o %< && time ./%<
+		term gcc % -o %< && ./%<
 	elseif &filetype == 'cpp'
-		set splitright
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:vsp
-		:term ./%<
+		term g++ -std=c++11 % -Wall -o %< && ./%<
 	elseif &filetype == 'rust'
-		set splitright
-		:vsp
 		term rustc % && ./%<
+	elseif &filetype == 'python'
+		term python3 %
 	endif
 endfunc
 
